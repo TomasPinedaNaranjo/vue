@@ -8,6 +8,7 @@ const { minNumber, maxNumber } = defineProps({
     type: Number,
     required: true
   },
+
   maxNumber: {
     type: Number,
     required: true
@@ -15,6 +16,7 @@ const { minNumber, maxNumber } = defineProps({
 })
 
 const randomNumber = ref(
+    
   Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 )
 
