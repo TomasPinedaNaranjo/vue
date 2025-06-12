@@ -1,8 +1,11 @@
 <script setup>
+
 import GameCounter from './components/GameCounter.vue'
 
 const WIN_NUMBER = 0
+
 const MAX_NUMBER = 10
+
 </script>
 
 <template>
