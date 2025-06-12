@@ -1,0 +1,99 @@
+name: Lint and Check Code Quality
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install ESLint and Vue linting tools
+      run: |
+        npm install --save-dev eslint
+        npm install --save-dev @vue/eslint-config-prettier
+        npm install --save-dev eslint-plugin-vue
+        npm install --save-dev @typescript-eslint/parser
+        npm install --save-dev @typescript-eslint/eslint-plugin
+        npm install --save-dev prettier
+        
+    - name: Create ESLint configuration
+      run: |
+        cat > .eslintrc.js << 'EOF'
+        module.exports = {
+          root: true,
+          env: {
+            node: true,
+            browser: true,
+            es2021: true
+          },
+          extends: [
+            'plugin:vue/vue3-essential',
+            'eslint:recommended',
+            '@vue/prettier'
+          ],
+          parserOptions: {
+            ecmaVersion: 2021,
+            sourceType: 'module'
+          },
+          rules: {
+            'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+            'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+            'vue/multi-word-component-names': 'off',
+            'vue/no-unused-vars': 'warn',
+            'vue/no-unused-components': 'warn'
+          }
+        }
+        EOF
+        
+    - name: Create Prettier configuration
+      run: |
+        cat > .prettierrc << 'EOF'
+        {
+          "semi": false,
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "none",
+          "printWidth": 80
+        }
+        EOF
+        
+    - name: Run ESLint
+      run: npx eslint src/ --ext .vue,.js,.ts --fix
+      
+    - name: Run Prettier check
+      run: npx prettier --check "src/**/*.{vue,js,ts,json,css,scss}"
+      
+    - name: Check for TypeScript errors (if applicable)
+      run: |
+        if [ -f "tsconfig.json" ]; then
+          npx vue-tsc --noEmit
+        else
+          echo "No TypeScript configuration found, skipping type checking"
+        fi
+        
+    - name: Build project
+      run: npm run build
+      
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: build-files
+        path: dist/
+        retention-days: 1 
