@@ -16,11 +16,13 @@ const { minNumber, maxNumber } = defineProps({
 })
 
 const randomNumber = ref(
-    
+
   Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+
 )
 
 const increment = () => {
+    
   if (counter.value < maxNumber) {
     counter.value++
   }

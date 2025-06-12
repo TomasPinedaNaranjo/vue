@@ -73,6 +73,9 @@ jobs:
     - name: Run ESLint
       run: npx eslint src/ --ext .vue,.js --fix
       
+    - name: Auto-fix code formatting with Prettier
+      run: npx prettier --write "src/**/*.{vue,js,json,css}"
+      
     - name: Check code formatting
       run: npx prettier --check "src/**/*.{vue,js,json,css}"
       
