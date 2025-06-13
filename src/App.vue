@@ -6,6 +6,7 @@ const WIN_NUMBER = 0
 
 const MAX_NUMBER = 10
 
+
 </script>
 
 <template>

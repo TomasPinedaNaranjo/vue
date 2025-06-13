@@ -17,7 +17,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
@@ -70,15 +72,30 @@ jobs:
           "printWidth": 80
         }' > .prettierrc
         
-    - name: Run ESLint
+    - name: Run ESLint with fixes
       run: npx eslint src/ --ext .vue,.js --fix
       
     - name: Auto-fix code formatting with Prettier
       run: npx prettier --write "src/**/*.{vue,js,json,css}"
       
-    - name: Check code formatting
-      run: npx prettier --check "src/**/*.{vue,js,json,css}"
-      
+    - name: Check if there are changes to commit
+      id: git-check
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push changes
+      if: steps.git-check.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "🔧 Apply automatic linting and formatting fixes"
+        git push
+        
     - name: Build project
       run: npm run build
       
@@ -87,4 +104,4 @@ jobs:
       with:
         name: build-${{ matrix.node-version }}
         path: dist/
-        retention-days: 7 
+        retention-days: 7
