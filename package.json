@@ -10,7 +10,10 @@
     "lint": "eslint src/ --ext .vue,.js --fix",
     "lint:check": "eslint src/ --ext .vue,.js",
     "format": "prettier --write \"src/**/*.{vue,js,json,css}\"",
-    "format:check": "prettier --check \"src/**/*.{vue,js,json,css}\""
+    "format:check": "prettier --check \"src/**/*.{vue,js,json,css}\"",
+    "lint:fix": "npm run lint && npm run format",
+    "quality": "npm run lint:check && npm run format:check && npm run build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "vue": "^3.5.13"
