@@ -9,6 +9,7 @@ const { minNumber, maxNumber } = defineProps({
     required: true
   },
 
+  
   maxNumber: {
     type: Number,
     required: true
