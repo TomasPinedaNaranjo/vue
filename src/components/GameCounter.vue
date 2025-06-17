@@ -7,12 +7,15 @@
     minNumber: {
       type: Number,
       required: true,
+
+
     },
     maxNumber: {
       type: Number,
+
       required: true,
     },
-  });
+  })
 
   const randomNumber = ref(
     Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
