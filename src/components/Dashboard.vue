@@ -30,7 +30,9 @@ export default {
   name: 'Dashboard',
   components: {
     BaseLayout,
+
     WelcomeSection,
+    
     ModuleGrid
   },
 
@@ -44,7 +46,7 @@ export default {
       selectedModule,
 
 
-      
+
       availableModules,
       selectModule,
       user,
