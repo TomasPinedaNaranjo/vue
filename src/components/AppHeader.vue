@@ -1,3 +1,26 @@
+<script>
+  export default {
+    name: 'AppHeader',
+    props: {
+      title: {
+        type: String,
+        default: 'ERP Sistema',
+      },
+      subtitle: {
+        type: String,
+        default: 'Panel de Control Principal',
+      },
+      user: {
+        type: Object,
+        default: () => ({
+          name: 'Usuario Ejemplo',
+          role: 'Administrador',
+        }),
+      },
+    },
+  };
+</script>
+
 <template>
   <header class="bg-white shadow-sm border-b">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,26 +39,3 @@
     </div>
   </header>
 </template>
-
-<script>
-export default {
-  name: 'AppHeader',
-  props: {
-    title: {
-      type: String,
-      default: 'ERP Sistema'
-    },
-    subtitle: {
-      type: String,
-      default: 'Panel de Control Principal'
-    },
-    user: {
-      type: Object,
-      default: () => ({
-        name: 'Usuario Ejemplo',
-        role: 'Administrador'
-      })
-    }
-  }
-}
-</script> 

@@ -1,16 +1,16 @@
 export const DASHBOARD_TEXTS = {
   header: {
     title: 'ERP Sistema',
-    subtitle: 'Panel de Control Principal'
+    subtitle: 'Panel de Control Principal',
   },
   welcome: {
     title: 'Bienvenido al Sistema ERP',
-    description: 'Selecciona el módulo con el que deseas trabajar'
+    description: 'Selecciona el módulo con el que deseas trabajar',
   },
   buttons: {
-    accessModule: 'Acceder al Módulo'
-  }
-}
+    accessModule: 'Acceder al Módulo',
+  },
+};
 
 export const MODULE_NAMES = {
   contabilidad: 'Contabilidad',
@@ -18,11 +18,11 @@ export const MODULE_NAMES = {
   inventario: 'Inventario',
   recursosHumanos: 'Recursos Humanos',
   compras: 'Compras',
-  reportes: 'Reportes'
-}
+  reportes: 'Reportes',
+};
 
 export const USER_ROLES = {
   ADMIN: 'Administrador',
   USER: 'Usuario',
-  MANAGER: 'Gerente'
-} 
+  MANAGER: 'Gerente',
+};
