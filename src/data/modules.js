@@ -5,7 +5,7 @@ export const modules = [
     description: 'Gestión de cuentas, balances y reportes financieros',
     icon: '📊',
     color: 'from-blue-500 to-blue-700',
-    route: '/contabilidad'
+    route: '/contabilidad',
   },
   {
     id: 'facturacion',
@@ -13,7 +13,7 @@ export const modules = [
     description: 'Creación de facturas, cotizaciones y gestión de ventas',
     icon: '🧾',
     color: 'from-green-500 to-green-700',
-    route: '/facturacion'
+    route: '/facturacion',
   },
   {
     id: 'inventario',
@@ -21,7 +21,7 @@ export const modules = [
     description: 'Control de stock, productos y gestión de almacén',
     icon: '📦',
     color: 'from-purple-500 to-purple-700',
-    route: '/inventario'
+    route: '/inventario',
   },
   {
     id: 'recursos-humanos',
@@ -29,7 +29,7 @@ export const modules = [
     description: 'Gestión de empleados, nómina y recursos humanos',
     icon: '👥',
     color: 'from-orange-500 to-orange-700',
-    route: '/recursos-humanos'
+    route: '/recursos-humanos',
   },
   {
     id: 'compras',
@@ -37,7 +37,7 @@ export const modules = [
     description: 'Gestión de proveedores, órdenes de compra y pagos',
     icon: '🛒',
     color: 'from-red-500 to-red-700',
-    route: '/compras'
+    route: '/compras',
   },
   {
     id: 'reportes',
@@ -45,11 +45,11 @@ export const modules = [
     description: 'Análisis, reportes y dashboards ejecutivos',
     icon: '📈',
     color: 'from-indigo-500 to-indigo-700',
-    route: '/reportes'
-  }
-]
+    route: '/reportes',
+  },
+];
 
 export const defaultUser = {
   name: 'Usuario Ejemplo',
-  role: 'Administrador'
-} 
+  role: 'Administrador',
+};
