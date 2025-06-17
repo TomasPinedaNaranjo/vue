@@ -2,16 +2,19 @@
 import { ref, computed } from 'vue'
 
 
+
 const counter = ref(0)
 
 const { minNumber, maxNumber } = defineProps({
   minNumber: {
     type: Number,
     required: true
+
   },
 
 
   maxNumber: {
+    
     type: Number,
     required: true
     

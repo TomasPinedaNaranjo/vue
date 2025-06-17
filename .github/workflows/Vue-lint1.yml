@@ -1,0 +1,39 @@
+name: Vue-lint1
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  vue-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Preparar Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'   # Ajusta si tu proyecto requiere otra versión
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: npm ci            # Usa pnpm o yarn si es tu gestor
+
+      # 4. Ejecutar el linter (ESLint, Stylelint, etc.)
+      #    Asegúrate de que el script "lint" esté definido en package.json.
+      #    Si quieres que formatee/fije errores, añade --fix en tu script.
+      - name: Run lint
+        run: npm run lint --if-present
+
+      # 5. (Opcional) Commits automáticos si el linter corrige archivos
+      - name: Commit and push changes if ESLint fixed files
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Vue Linting (ESLint)
+          skip_fetch: true
