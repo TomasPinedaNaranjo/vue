@@ -33,12 +33,18 @@ export default {
     WelcomeSection,
     ModuleGrid
   },
+
   setup() {
+
     const { selectedModule, availableModules, selectModule } = useModules()
+
     const { user } = useUser()
 
     return {
       selectedModule,
+
+
+      
       availableModules,
       selectModule,
       user,

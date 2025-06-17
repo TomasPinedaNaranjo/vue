@@ -23,7 +23,9 @@ jobs:
 
       # 3. Instalar dependencias
       - name: Install dependencies
-        run: npm ci            # Usa pnpm o yarn si es tu gestor
+        run: |
+          npm ci            # Usa pnpm o yarn si es tu gestor
+          npm run prepare
 
       # 4. Ejecutar el linter (ESLint, Stylelint, etc.)
       #    Asegúrate de que el script "lint" esté definido en package.json.
