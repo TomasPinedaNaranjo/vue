@@ -9,17 +9,12 @@ const { minNumber, maxNumber } = defineProps({
   minNumber: {
     type: Number,
     required: true
-
   },
-
-
   maxNumber: {
-    
     type: Number,
     required: true
-    
   }
-})
+});
 
 const randomNumber = ref(
 
