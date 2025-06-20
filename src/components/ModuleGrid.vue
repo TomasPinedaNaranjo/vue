@@ -1,27 +1,27 @@
 <script>
-  import ModuleCard from './ModuleCard.vue';
+import ModuleCard from './ModuleCard.vue';
 
-  export default {
-    name: 'ModuleGrid',
-    components: {
-      ModuleCard,
+export default {
+  name: 'ModuleGrid',
+  components: {
+    ModuleCard
+  },
+  props: {
+    modules: {
+      type: Array,
+      required: true
     },
-    props: {
-      modules: {
-        type: Array,
-        required: true,
-      },
-      selectedModule: {
-        type: String,
-        default: '',
-      },
-      buttonText: {
-        type: String,
-        default: 'Acceder al Módulo',
-      },
+    selectedModule: {
+      type: String,
+      default: ''
     },
-    emits: ['select'],
-  };
+    buttonText: {
+      type: String,
+      default: 'Acceder al Módulo'
+    }
+  },
+  emits: ['select']
+};
 </script>
 
 <template>

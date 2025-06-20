@@ -1,34 +1,34 @@
 <script>
-  import BaseLayout from './BaseLayout.vue';
-  import WelcomeSection from './WelcomeSection.vue';
-  import ModuleGrid from './ModuleGrid.vue';
-  import { useModules } from '../composables/useModules.js';
-  import { useUser } from '../composables/useUser.js';
-  import { DASHBOARD_TEXTS } from '../constants/texts.js';
+import BaseLayout from './BaseLayout.vue';
+import WelcomeSection from './WelcomeSection.vue';
+import ModuleGrid from './ModuleGrid.vue';
+import { useModules } from '../composables/useModules.js';
+import { useUser } from '../composables/useUser.js';
+import { DASHBOARD_TEXTS } from '../constants/texts.js';
 
-  export default {
-    name: 'Dashboard',
-    components: {
-      BaseLayout,
-      WelcomeSection,
-      ModuleGrid,
-    },
+export default {
+  name: 'Dashboard',
+  components: {
+    BaseLayout,
+    WelcomeSection,
+    ModuleGrid
+  },
 
-    setup() {
-      const { selectedModule, availableModules, selectModule } = useModules();
+  setup() {
+    const { selectedModule, availableModules, selectModule } = useModules();
 
-      const { user } = useUser();
+    const { user } = useUser();
 
-      return {
-        selectedModule,
+    return {
+      selectedModule,
 
-        availableModules,
-        selectModule,
-        user,
-        DASHBOARD_TEXTS,
-      };
-    },
-  };
+      availableModules,
+      selectModule,
+      user,
+      DASHBOARD_TEXTS
+    };
+  }
+};
 </script>
 
 <template>

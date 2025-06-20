@@ -1,17 +1,17 @@
 <script>
-  export default {
-    name: 'WelcomeSection',
-    props: {
-      title: {
-        type: String,
-        default: 'Bienvenido al Sistema ERP',
-      },
-      description: {
-        type: String,
-        default: 'Selecciona el módulo con el que deseas trabajar',
-      },
+export default {
+  name: 'WelcomeSection',
+  props: {
+    title: {
+      type: String,
+      default: 'Bienvenido al Sistema ERP'
     },
-  };
+    description: {
+      type: String,
+      default: 'Selecciona el módulo con el que deseas trabajar'
+    }
+  }
+};
 </script>
 
 <template>

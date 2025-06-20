@@ -20,6 +20,6 @@ export function useUser() {
     user,
     updateUser,
     getUserRole,
-    getUserName,
+    getUserName
   };
 }

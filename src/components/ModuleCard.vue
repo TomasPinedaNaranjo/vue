@@ -1,22 +1,22 @@
 <script>
-  export default {
-    name: 'ModuleCard',
-    props: {
-      module: {
-        type: Object,
-        required: true,
-      },
-      isSelected: {
-        type: Boolean,
-        default: false,
-      },
-      buttonText: {
-        type: String,
-        default: 'Acceder al Módulo',
-      },
+export default {
+  name: 'ModuleCard',
+  props: {
+    module: {
+      type: Object,
+      required: true
     },
-    emits: ['select'],
-  };
+    isSelected: {
+      type: Boolean,
+      default: false
+    },
+    buttonText: {
+      type: String,
+      default: 'Acceder al Módulo'
+    }
+  },
+  emits: ['select']
+};
 </script>
 
 <template>

@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src/ --ext .vue,.js --fix",
-    "lint:check": "eslint src/ --ext .vue,.js",
+    "lint": "eslint src --fix",
+    "lint:check": "eslint src",
     "format": "prettier --write \"src/**/*.{vue,js,json,css}\"",
     "format:check": "prettier --check \"src/**/*.{vue,js,json,css}\"",
     "lint:fix": "npm run lint && npm run format",
@@ -19,16 +19,20 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@eslint/js": "^9.29.0",
     "@tailwindcss/postcss": "^4.1.10",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-prettier": "^8.0.0",
     "autoprefixer": "^10.4.21",
-    "eslint": "^8.0.0",
-    "eslint-plugin-vue": "^9.0.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^16.2.0",
     "husky": "^9.1.7",
     "postcss": "^8.5.5",
     "prettier": "^3.0.0",
     "tailwindcss": "^4.1.10",
-    "vite": "^6.3.5"
+    "typescript-eslint": "^8.34.1",
+    "vite": "^6.3.5",
+    "vue-eslint-parser": "^10.1.3"
   }
 }

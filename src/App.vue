@@ -1,12 +1,11 @@
 <script>
-  import Dashboard from './components/Dashboard.vue';
+import Dashboard from './components/Dashboard.vue';
 
-  export default {
-    components: {
-      Dashboard,
-    },
+export default {
+  components: {
+    Dashboard
   }
-
+};
 </script>
 
 <template>

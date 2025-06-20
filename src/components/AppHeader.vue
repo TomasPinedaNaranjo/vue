@@ -1,24 +1,24 @@
 <script>
-  export default {
-    name: 'AppHeader',
-    props: {
-      title: {
-        type: String,
-        default: 'ERP Sistema',
-      },
-      subtitle: {
-        type: String,
-        default: 'Panel de Control Principal',
-      },
-      user: {
-        type: Object,
-        default: () => ({
-          name: 'Usuario Ejemplo',
-          role: 'Administrador',
-        }),
-      },
+export default {
+  name: 'AppHeader',
+  props: {
+    title: {
+      type: String,
+      default: 'ERP Sistema'
     },
-  };
+    subtitle: {
+      type: String,
+      default: 'Panel de Control Principal'
+    },
+    user: {
+      type: Object,
+      default: () => ({
+        name: 'Usuario Ejemplo',
+        role: 'Administrador'
+      })
+    }
+  }
+};
 </script>
 
 <template>

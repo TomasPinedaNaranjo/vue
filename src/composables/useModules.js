@@ -26,6 +26,6 @@ export function useModules() {
     availableModules,
     selectModule,
     getModuleById,
-    filteredModules,
+    filteredModules
   };
 }
